@@ -22,10 +22,10 @@
                         display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        dark: '#030b14', // Deep navy background adapted from poster
-                        darker: '#010408', // Darker navy for alternating sections
-                        card: '#081627', // Deep blue tint for cards
-                        accent: '#00d4ff', // Vibrant Cyan signature accent from poster
+                        dark: '#030b14',
+                        darker: '#010408',
+                        card: '#081627',
+                        accent: '#00d4ff',
                         accentHover: '#33deff',
                         cyan: '#e0f7fa',
                     },
@@ -74,7 +74,6 @@
             cursor: none; 
         }
 
-        /* Interactive Custom Cursor */
         .cursor-dot {
             width: 8px;
             height: 8px;
@@ -117,7 +116,6 @@
             width: 4px; height: 4px;
         }
 
-        /* 3D Canvas Background container */
         #canvas-container {
             position: absolute;
             top: 0;
@@ -129,7 +127,6 @@
             background: radial-gradient(circle at center, #0a1b33 0%, #010408 100%);
         }
 
-        /* Scroll Progress Bar */
         #scroll-progress {
             position: fixed;
             top: 0;
@@ -142,7 +139,6 @@
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
         }
 
-        /* Enhanced Scroll Reveal animations */
         .reveal {
             opacity: 0;
             transform: translateY(50px) scale(0.95);
@@ -153,7 +149,6 @@
             transform: translateY(0) scale(1);
         }
 
-        /* Premium Glassmorphism Cards */
         .glass {
             background: rgba(10, 10, 10, 0.4);
             backdrop-filter: blur(24px);
@@ -170,7 +165,6 @@
             overflow: hidden;
         }
 
-        /* Hover Shine Effect for Cards */
         .glass-card::before {
             content: '';
             position: absolute;
@@ -195,7 +189,6 @@
             border-color: rgba(0, 212, 255, 0.4);
         }
 
-        /* Premium Gradient typography helper */
         .text-gradient {
             background: linear-gradient(to right, #00d4ff, #0066ff, #a0e0ff);
             -webkit-background-clip: text;
@@ -205,7 +198,6 @@
             animation: shine 4s linear infinite;
         }
 
-        /* Scrollbar aesthetics */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #010408; }
         ::-webkit-scrollbar-thumb {
@@ -215,7 +207,6 @@
         }
         ::-webkit-scrollbar-thumb:hover { background: #00d4ff; }
         
-        /* Smooth Category Filtering */
         .gallery-section {
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
@@ -234,17 +225,14 @@
         }
         .filter-btn.active::after { width: 100%; opacity: 1; }
         
-        /* 3D Tilt Card Effect Class */
         .tilt-card { transform-style: preserve-3d; transition: transform 0.1s ease; }
         .tilt-content { transform: translateZ(50px); }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-white">
 
-    <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
-    <!-- Top Scroll Progress Indicator -->
     <div id="scroll-progress"></div>
 
     <nav class="fixed w-full z-50 transition-all duration-500" id="navbar">
@@ -252,7 +240,7 @@
             <a href="#" class="font-display font-bold text-xl tracking-wider text-white flex items-center gap-3 cursor-hover">
                 <div class="relative">
                     <div class="absolute inset-0 bg-accent rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
-                    <img src="\images\5974231240687078374_99.webp"
+                    <img src="images/5974231240687078374_99.webp" 
                          alt="JO FIRE Profile Logo" 
                          class="relative w-10 h-10 rounded-full object-cover border border-accent/60 shadow-[0_0_15px_rgba(0,212,255,0.4)] transition-transform duration-500 group-hover:rotate-[360deg]"
                          onerror="this.onerror=null; loadFallbackSvg(this, 'avatar', 'JO', 'FIRE');">
@@ -262,7 +250,6 @@
                 </span>
             </a>
             
-            <!-- Desktop Menu Options -->
             <div class="hidden md:flex gap-8 items-center text-xs font-semibold tracking-widest">
                 <a href="#work" class="text-gray-300 hover:text-white relative overflow-hidden group/link transition-colors duration-200 uppercase cursor-hover">
                     My Work
@@ -275,13 +262,11 @@
                 <a href="#contact" class="px-6 py-2.5 bg-white text-dark rounded-full hover:bg-gradient-to-r hover:from-accent hover:to-blue-500 hover:text-white hover:shadow-[0_0_20px_rgba(0,212,255,0.6)] hover:scale-105 transition-all duration-300 font-bold uppercase cursor-hover border border-transparent">Get In Touch</a>
             </div>
 
-            <!-- Mobile Toggle Menu Button -->
             <button class="md:hidden text-white text-2xl p-1 focus:outline-none cursor-hover transition-transform hover:scale-110" id="mobile-menu-btn" aria-label="Toggle Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Flyout Overlay -->
         <div id="mobile-menu" class="absolute top-full left-0 w-full glass flex-col items-center py-6 gap-5 border-t border-white/5 md:hidden transform -translate-y-full opacity-0 pointer-events-none transition-all duration-500 z-40 shadow-2xl">
             <a href="#work" class="text-base font-display text-gray-300 hover:text-accent mobile-link tracking-widest">PORTFOLIO</a>
             <a href="#about" class="text-base font-display text-gray-300 hover:text-accent mobile-link tracking-widest">ABOUT</a>
@@ -290,20 +275,18 @@
     </nav>
 
     <section id="home" class="relative h-screen flex items-center justify-center pt-20">
-        <!-- 3D Canvas dynamic node background -->
         <div id="canvas-container"></div>
 
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center mt-8 md:mt-0">
             <div class="relative mb-8 reveal flex justify-center animate-float cursor-hover">
                 <div class="w-28 h-28 md:w-32 md:h-32 rounded-full p-1 bg-gradient-to-tr from-accent via-blue-500 to-cyan-600 animate-pulse-slow shadow-[0_0_40px_rgba(0,212,255,0.5)] relative group">
                     <div class="w-full h-full rounded-full overflow-hidden border-4 border-darker bg-card">
-                        <img src="\images\5974231240687078374_99.webp" 
+                        <img src="images/5974231240687078374_99.webp" 
                              alt="JO FIRE Hero Profile" 
                              class="w-full h-full object-cover scale-110 group-hover:scale-100 group-hover:rotate-3 transition-transform duration-700"
                              onerror="this.onerror=null; loadFallbackSvg(this, 'avatar', 'JO', 'FIRE');">
                     </div>
                 </div>
-                <!-- Live Active Online Pulse -->
                 <span class="absolute bottom-2 right-3 w-5 h-5 bg-emerald-500 border-4 border-darker rounded-full shadow-[0_0_15px_rgba(16,185,129,0.8)]"></span>
             </div>
 
@@ -338,7 +321,6 @@
     </section>
 
     <section id="about" class="py-24 bg-darker relative border-y border-white/5 overflow-hidden">
-        <!-- Decorative bg glow -->
         <div class="absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -367,7 +349,6 @@
                 </div>
 
                 <div class="order-1 lg:order-2 reveal relative flex justify-center perspective-1000">
-                    <!-- Interactive Tilt Card -->
                     <div id="about-card" class="relative w-full max-w-md rounded-[2rem] glass-card p-4 overflow-hidden group tilt-card shadow-2xl cursor-hover border border-white/10 hover:border-accent/50">
                         <div class="absolute -top-32 -right-32 w-80 h-80 bg-accent/20 rounded-full mix-blend-screen filter blur-3xl animate-blob"></div>
                         <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-blue-500/10 rounded-full mix-blend-screen filter blur-3xl animate-blob" style="animation-delay: 2s;"></div>
@@ -375,7 +356,7 @@
                         <div class="relative z-10 h-full w-full bg-[#030b14]/90 backdrop-blur-xl rounded-[1.5rem] border border-white/5 p-8 text-center tilt-content shadow-inner">
                             <div class="portfolio-img-container rounded-xl overflow-hidden border border-white/10 mb-6 bg-zinc-900 shadow-[0_20px_40px_rgba(0,0,0,0.5)] aspect-[4/5] relative">
                                 <div class="absolute inset-0 bg-gradient-to-t from-accent/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                                <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5974231240687078374_99.webp"
+                                <img src="images/5974231240687078374_99.webp" 
                                      alt="Jo Fire Photo (Grade 12)" 
                                      class="w-full h-full object-cover filter contrast-125 group-hover:scale-110 transition-transform duration-700"
                                      onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'JO FIRE', 'Grade 12 Foundation');">
@@ -393,12 +374,10 @@
     </section>
 
     <section id="work" class="py-24 relative overflow-hidden">
-        <!-- Background elements for depth -->
         <div class="absolute right-0 top-40 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-6">
             
-            <!-- Page Header Container -->
             <div class="w-full glass-card rounded-[2rem] p-8 md:p-14 mb-16 relative overflow-hidden border-l-4 border-accent shadow-2xl reveal group hover:border-l-8 transition-all duration-500">
                 <div class="absolute -right-32 -bottom-32 w-96 h-96 bg-accent/10 rounded-full blur-[80px] group-hover:bg-accent/20 transition-colors duration-700 animate-pulse-slow"></div>
                 <div class="relative z-10 flex flex-col justify-between min-h-[220px]">
@@ -419,7 +398,6 @@
                 </div>
             </div>
 
-            <!-- Visual Category Filter Bar -->
             <div class="flex flex-wrap gap-4 justify-center mb-16 reveal" style="transition-delay: 100ms;">
                 <button class="filter-btn active px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest border border-white/10 transition-all duration-300 cursor-hover bg-white/5 hover:bg-white/10 shadow-lg" onclick="filterGallery('all', this)">All Projects</button>
                 <button class="filter-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest border border-white/10 transition-all duration-300 cursor-hover bg-white/5 hover:bg-white/10 shadow-lg" onclick="filterGallery('logos', this)">Logo Folio</button>
@@ -435,10 +413,9 @@
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    <!-- GP Logo -->
-                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Gospel Picture (GP) Logo', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot-2026-07-08-163306.webp', 'logos', 'A modern graphic symbol designed to showcase minimalist and powerful spiritual identity styling.')">
+                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Gospel Picture (GP) Logo', 'images/Screenshot-2026-07-08-163306.webp', 'logos', 'A modern graphic symbol designed to showcase minimalist and powerful spiritual identity styling.')">
                         <div class="w-full h-full flex items-center justify-center bg-[#030b14] p-8 rounded-lg border border-white/5 group-hover:border-accent/30 transition-colors duration-500">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot-2026-07-08-163306.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'GP', 'Gospel Picture');"> 
+                            <img src="images/Screenshot-2026-07-08-163306.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'GP', 'Gospel Picture');"> 
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                             <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Gospel Picture</h4>
@@ -449,10 +426,9 @@
                         </div>
                     </div>
                     
-                    <!-- Metsni Coffee -->
-                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Metsni Coffee Shop Logo', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot-2026-07-08-163249.webp', 'logos', 'Artistic brand mark designed for Metsni coffee shop, combining traditional essence with modern hospitality graphics.')">
+                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Metsni Coffee Shop Logo', 'images/Screenshot-2026-07-08-163249.webp', 'logos', 'Artistic brand mark designed for Metsni coffee shop, combining traditional essence with modern hospitality graphics.')">
                         <div class="w-full h-full flex items-center justify-center bg-[#030b14] p-8 rounded-lg border border-white/5 group-hover:border-accent/30 transition-colors duration-500">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot-2026-07-08-163249.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Metsni', 'Coffee Shop Logo');">
+                            <img src="images/Screenshot-2026-07-08-163249.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Metsni', 'Coffee Shop Logo');">
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                             <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Metsni Coffee</h4>
@@ -463,10 +439,9 @@
                         </div>
                     </div>
 
-                    <!-- Abyssinia Styles -->
-                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Abyssinia Styles Logo', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 163152 (1).webp', 'logos', 'A sleek logo representing identity, culture, and upscale fashion in one unique visual frame.')">
+                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Abyssinia Styles Logo', 'images/Screenshot 2026-07-08 163152 (1).webp', 'logos', 'A sleek logo representing identity, culture, and upscale fashion in one unique visual frame.')">
                         <div class="w-full h-full flex items-center justify-center bg-[#030b14] p-8 rounded-lg border border-white/5 group-hover:border-accent/30 transition-colors duration-500">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot 2026-07-08 163152 (1).webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'AS', 'Abyssinia Styles');">
+                            <img src="images/Screenshot 2026-07-08 163152 (1).webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'AS', 'Abyssinia Styles');">
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                             <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Abyssinia Styles</h4>
@@ -477,10 +452,9 @@
                         </div>
                     </div>
 
-                    <!-- Sosi Fashion Store -->
-                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Sosi Fashion Store Logo', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 163200.webp', 'logos', 'Elegant fashion logotype focusing on feminine design elements, luxury textures, and outstanding visibility.')">
+                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Sosi Fashion Store Logo', 'images/Screenshot 2026-07-08 163200.webp', 'logos', 'Elegant fashion logotype focusing on feminine design elements, luxury textures, and outstanding visibility.')">
                         <div class="w-full h-full flex items-center justify-center bg-[#030b14] p-8 rounded-lg border border-white/5 group-hover:border-accent/30 transition-colors duration-500">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot 2026-07-08 163200.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Sosi', 'Fashion Store');">
+                            <img src="images/Screenshot 2026-07-08 163200.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Sosi', 'Fashion Store');">
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                             <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Sosi Fashion</h4>
@@ -491,10 +465,9 @@
                         </div>
                     </div>
 
-                    <!-- Zagon Tech -->
-                     <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Zagon Technology Logo', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 163208.webp', 'logos', 'A cybernetic, sharp, technical emblem engineered for an cutting-edge tech solutions firm.')">
+                     <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Zagon Technology Logo', 'images/Screenshot 2026-07-08 163208.webp', 'logos', 'A cybernetic, sharp, technical emblem engineered for an cutting-edge tech solutions firm.')">
                         <div class="w-full h-full flex items-center justify-center bg-[#030b14] p-8 rounded-lg border border-white/5 group-hover:border-accent/30 transition-colors duration-500">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot 2026-07-08 163208.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Zagon', 'Technology Logo');">
+                            <img src="images/Screenshot 2026-07-08 163208.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Zagon', 'Technology Logo');">
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                             <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Zagon Tech</h4>
@@ -505,10 +478,9 @@
                         </div>
                     </div>
 
-                    <!-- Jo Creations -->
-                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Jo Creations Logo', 'c:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot-2026-07-08-163227.webp', 'logos', 'Personal brand mark blending geometric architecture with creative typography elements.')">
+                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Jo Creations Logo', 'images/Screenshot-2026-07-08-163227.webp', 'logos', 'Personal brand mark blending geometric architecture with creative typography elements.')">
                         <div class="w-full h-full flex items-center justify-center bg-[#030b14] p-8 rounded-lg border border-white/5 group-hover:border-accent/30 transition-colors duration-500">
-                            <img src="c:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot-2026-07-08-163227.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Jo', 'Creations Logo');">
+                            <img src="images/Screenshot-2026-07-08-163227.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Jo', 'Creations Logo');">
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                             <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Jo Creations</h4>
@@ -518,10 +490,10 @@
                             </div>
                         </div>
                     </div>
-                     <!-- Creative Studio Monogram Logo -->
-                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Creative Studio Monogram Logo', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot-2026-07-08-163259.webp', 'logos', 'Minimalist visual identity piece built around a fluid abstract monogram, engineered for strong brand recognition across print and digital media.')">
+
+                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Creative Studio Monogram Logo', 'images/Screenshot-2026-07-08-163259.webp', 'logos', 'Minimalist visual identity piece built around a fluid abstract monogram, engineered for strong brand recognition across print and digital media.')">
                         <div class="w-full h-full flex items-center justify-center bg-[#030b14] p-8 rounded-lg border border-white/5 group-hover:border-accent/30 transition-colors duration-500">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot-2026-07-08-163259.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Jo', 'Creations Logo');">
+                            <img src="images/Screenshot-2026-07-08-163259.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Jo', 'Creations Logo');">
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                             <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Creative Studio Monogram Logo</h4>
@@ -531,10 +503,10 @@
                             </div>
                         </div>
                     </div>
-                     <!-- Camera Monogram Logo Design -->
-                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Camera Monogram Logo Design', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot-2026-07-08-163317.webp', 'logos', 'A modern, minimalist logo mark blending a camera icon with an integrated letter monogram, designed for photography studios and visual media brands.')">
+
+                    <div class="portfolio-card glass-card rounded-xl p-6 flex flex-col items-center justify-center aspect-square text-center group cursor-pointer relative overflow-hidden" onclick="openLightbox('Camera Monogram Logo Design', 'images/Screenshot-2026-07-08-163317.webp', 'logos', 'A modern, minimalist logo mark blending a camera icon with an integrated letter monogram, designed for photography studios and visual media brands.')">
                         <div class="w-full h-full flex items-center justify-center bg-[#030b14] p-8 rounded-lg border border-white/5 group-hover:border-accent/30 transition-colors duration-500">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot-2026-07-08-163317.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Jo', 'Creations Logo');">
+                            <img src="images/Screenshot-2026-07-08-163317.webp" class="max-w-full max-h-full object-contain portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'logo', 'Jo', 'Creations Logo');">
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                             <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Camera Monogram Logo Design</h4>
@@ -555,10 +527,9 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    <!-- YouTube Thumbnail Design Collection -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('YouTube Thumbnail Design Collection', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 163003.webp', 'posters', 'A portfolio showcase banner displaying high-CTR YouTube thumbnail concepts across gaming, music production, challenge, and lifestyle categories on a modern mobile mockup.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('YouTube Thumbnail Design Collection', 'images/Screenshot 2026-07-08 163003.webp', 'posters', 'A portfolio showcase banner displaying high-CTR YouTube thumbnail concepts across gaming, music production, challenge, and lifestyle categories on a modern mobile mockup.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot 2026-07-08 163003.webp"class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'METSNI COFFEE', 'Aroma & Brand Campaign');">
+                            <img src="images/Screenshot 2026-07-08 163003.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'METSNI COFFEE', 'Aroma & Brand Campaign');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 border border-white/5 rounded-xl backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">YouTube Thumbnail Design Collection</h4>
                                 <p class="text-[10px] text-accent uppercase font-mono mt-1 font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Content Creator Visuals & Thumbnails</p>
@@ -566,10 +537,9 @@
                         </div>
                     </div>
 
-                    <!-- Music Video Cover Artwork -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Music Video Cover Artwork', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5902332298449849666_121.webp', 'posters', 'High-impact thumbnail design combining custom Amharic typography with intense visual contrast to boost click-through rates for music launches.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Music Video Cover Artwork', 'images/5902332298449849666_121.webp', 'posters', 'High-impact thumbnail design combining custom Amharic typography with intense visual contrast to boost click-through rates for music launches.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5902332298449849666_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'FREE GRAPHICS', 'Amharic Promo Banner');">
+                            <img src="images/5902332298449849666_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'FREE GRAPHICS', 'Amharic Promo Banner');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 border border-white/5 rounded-xl backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Music Video Cover Artwork</h4>
                                 <p class="text-[10px] text-accent uppercase font-mono mt-1 font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Christian Rap Music Video Thumbnail</p>
@@ -577,10 +547,9 @@
                         </div>
                     </div>
 
-                    <!--Graphic Design Tutorial Thumbnail -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Graphic Design Tutorial Thumbnail', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5992521200003304238_121.webp', 'posters', 'An engaging YouTube thumbnail concept featuring Adobe Photoshop & Illustrator branding, bold hook text, and custom visual overlays tailored for tech or creative tutorials.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Graphic Design Tutorial Thumbnail', 'images/5992521200003304238_121.webp', 'posters', 'An engaging YouTube thumbnail concept featuring Adobe Photoshop & Illustrator branding, bold hook text, and custom visual overlays tailored for tech or creative tutorials.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5992521200003304238_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'ABYSSINIA FASHION', 'Summer Collection Launch');">
+                            <img src="images/5992521200003304238_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'ABYSSINIA FASHION', 'Summer Collection Launch');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 border border-white/5 rounded-xl backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Graphic Design Tutorial Thumbnail</h4>
                                 <p class="text-[10px] text-accent uppercase font-mono mt-1 font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">"Still There?" Photoshop vs. Illustrator Graphic</p>
@@ -588,10 +557,9 @@
                         </div>
                     </div>
 
-                    <!-- Creative Director Portfolio Banner -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Creative Director Portfolio Banner', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5992521200003304236_121.webp', 'posters', 'High-contrast graphic design banner emphasizing personal identity through clean typography cutout layering and subtle lighting effects.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Creative Director Portfolio Banner', 'images/5992521200003304236_121.webp', 'posters', 'High-contrast graphic design banner emphasizing personal identity through clean typography cutout layering and subtle lighting effects.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5992521200003304236_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'ZAGON HACKATHON', 'Future of Technology Promo');">
+                            <img src="images/5992521200003304236_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'ZAGON HACKATHON', 'Future of Technology Promo');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 border border-white/5 rounded-xl backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Creative Director Portfolio Banner</h4>
                                 <p class="text-[10px] text-accent uppercase font-mono mt-1 font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Personal Portfolio Cover Concept</p>
@@ -599,20 +567,19 @@
                         </div>
                     </div>
 
-                    <!-- Brand Social Media Visual Presentation -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Brand Social Media Visual Presentation', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5992521200003304242_121 (2).webp', 'posters', 'Professional visual display designed to highlight social media promotional graphics, branding elements, and mobile-first layouts.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Brand Social Media Visual Presentation', 'images/5992521200003304242_121 (2).webp', 'posters', 'Professional visual display designed to highlight social media promotional graphics, branding elements, and mobile-first layouts.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5992521200003304242_121 (2).webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'GOSPEL EVENT', 'Spiritual Visual Masterpiece');">
+                            <img src="images/5992521200003304242_121 (2).webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'GOSPEL EVENT', 'Spiritual Visual Masterpiece');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 border border-white/5 rounded-xl backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Brand Social Media Visual Presentation</h4>
                                 <p class="text-[10px] text-accent uppercase font-mono mt-1 font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Mobile Social Media Ad Mockup</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Cinematic Gospel Music Video Thumbnail -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Cinematic Gospel Music Video Thumbnail', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5893453248134319337_121.jpg', 'posters', 'A filmic thumbnail composition engineered for YouTube music launches, blending serene sky-tone visuals, emotional portraiture, and clean typographic hierarchy.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Cinematic Gospel Music Video Thumbnail', 'images/5893453248134319337_121.jpg', 'posters', 'A filmic thumbnail composition engineered for YouTube music launches, blending serene sky-tone visuals, emotional portraiture, and clean typographic hierarchy.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5893453248134319337_121.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'ZAGON HACKATHON', 'Future of Technology Promo');">
+                            <img src="images/5893453248134319337_121.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'ZAGON HACKATHON', 'Future of Technology Promo');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 border border-white/5 rounded-xl backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Cinematic Gospel Music Video Thumbnail</h4>
                                 <p class="text-[10px] text-accent uppercase font-mono mt-1 font-bold translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">"በሰማይ የምትኖር" Music Video Artwork</p>
@@ -621,79 +588,77 @@
                     </div>
                 </div>
 
-                <!-- Special Birthday Visuals -->
                 <div class="mb-8 flex items-center gap-4 border-l-4 border-accent pl-4 py-1 bg-gradient-to-r from-accent/10 to-transparent rounded-r-xl">
                     <h4 class="font-display text-xl text-white font-bold uppercase tracking-wide">Bespoke Portraits & Cards</h4>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                    <!-- Nawilyy -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Happy Birthday: Queen Nawilyy', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 162758.webp', 'posters', 'A personalized celebration visual crafted with tailored color grading and modern typography.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Happy Birthday: Queen Nawilyy', 'images/Screenshot 2026-07-08 162758.webp', 'posters', 'A personalized celebration visual crafted with tailored color grading and modern typography.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot 2026-07-08 162758.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'NAWILYY', 'Creative Birthday Visual');">
+                            <img src="images/Screenshot 2026-07-08 162758.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'NAWILYY', 'Creative Birthday Visual');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#02060d] via-[#02060d]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 border border-white/5 rounded-xl">
                                 <h5 class="text-white font-display font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-500">Queen Nawilyy</h5>
                             </div>
                         </div>
                     </div>
-                    <!-- Abeni -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Happy Birthday: King Abeni', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5906842181614374216_121.jpg', 'posters', 'A striking portrait edit designed to celebrate special occasions with high-end graphic enhancements.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Happy Birthday: King Abeni', 'images/5906842181614374216_121.jpg', 'posters', 'A striking portrait edit designed to celebrate special occasions with high-end graphic enhancements.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5906842181614374216_121.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'KING NAHOM', 'Gold Standard Banner');">
+                            <img src="images/5906842181614374216_121.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'KING NAHOM', 'Gold Standard Banner');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#02060d] via-[#02060d]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 border border-white/5 rounded-xl">
                                 <h5 class="text-white font-display font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-yellow-500">King Abeni</h5>
                             </div>
                         </div>
                     </div>
-                    <!-- LIdu -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Happy Birthday: Queen Lidu', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 162901.webp','posters', 'A vibrant, dual-tone birthday flyer design featuring bold calligraphy typography, dual portrait blending, and modern color blocking.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Happy Birthday: Queen Lidu', 'images/Screenshot 2026-07-08 162901.webp','posters', 'A vibrant, dual-tone birthday flyer design featuring bold calligraphy typography, dual portrait blending, and modern color blocking.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\Screenshot 2026-07-08 162901.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN SARA', 'Cinematic Portrait Card');">
+                            <img src="images/Screenshot 2026-07-08 162901.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN SARA', 'Cinematic Portrait Card');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#02060d] via-[#02060d]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 border border-white/5 rounded-xl">
                                 <h5 class="text-white font-display font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-purple-400">Queen Lidu </h5>
                             </div>
                         </div>
                     </div>
-                    <!-- Burger Special -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Burger Special – Promotional Poster Design', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5803404658863705530_121.webp', 'posters', 'Social media ad design focused on bold typography, appetizing food visual layout, and clear calls to action.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Burger Special – Promotional Poster Design', 'images/5803404658863705530_121.webp', 'posters', 'Social media ad design focused on bold typography, appetizing food visual layout, and clear calls to action.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5803404658863705530_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN BETHEL', 'Elegant Minimalist Design');">
+                            <img src="images/5803404658863705530_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN BETHEL', 'Elegant Minimalist Design');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#02060d] via-[#02060d]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 border border-white/5 rounded-xl">
                                 <h5 class="text-white font-display font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-rose-400">Burger Special</h5>
                             </div>
                         </div>
                     </div>
-                     <!-- Special Coffee Shop – Promotional Poster -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Special Coffee Shop – Promotional Poster', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5803404658863705531_121.webp', 'posters', 'A rich, dynamic promotional visual engineered for cafés and coffee brands, featuring splash manipulation effects, warm color tones, and clear call-to-action details.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Special Coffee Shop – Promotional Poster', 'images/5803404658863705531_121.webp', 'posters', 'A rich, dynamic promotional visual engineered for cafés and coffee brands, featuring splash manipulation effects, warm color tones, and clear call-to-action details.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5803404658863705531_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN BETHEL', 'Elegant Minimalist Design');">
+                            <img src="images/5803404658863705531_121.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN BETHEL', 'Elegant Minimalist Design');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#02060d] via-[#02060d]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 border border-white/5 rounded-xl">
                                 <h5 class="text-white font-display font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-rose-400">Special Coffee Shop – Promotional Poster</h5>
                             </div>
                         </div>
                     </div>
-                     <!-- Church Tuesday Service Announcement Flyer -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Church Tuesday Service Announcement Flyer', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5789748037251960905_119.jpg', 'posters', 'A crisp, uplifting promotional poster designed for church services, featuring bold block typography, vibrant blue lighting accents, and layered portrait cutouts.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Church Tuesday Service Announcement Flyer', 'images/5789748037251960905_119.jpg', 'posters', 'A crisp, uplifting promotional poster designed for church services, featuring bold block typography, vibrant blue lighting accents, and layered portrait cutouts.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\5789748037251960905_119.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN SARA', 'Cinematic Portrait Card');">
+                            <img src="images/5789748037251960905_119.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN SARA', 'Cinematic Portrait Card');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#02060d] via-[#02060d]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 border border-white/5 rounded-xl">
                                 <h5 class="text-white font-display font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-purple-400">Church Tuesday Service Announcement Flyer </h5>
                             </div>
                         </div>
                     </div>
-                     <!-- Church Conference Event Flyer -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Church Conference Event Flyer', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5967487927287745320_121.jpg', 'posters', 'A bright, elegant promotional graphic crafted with warm backlighting, custom 3D text styling, and clear visual hierarchy for event announcements.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Church Conference Event Flyer', 'images/5967487927287745320_121.jpg', 'posters', 'A bright, elegant promotional graphic crafted with warm backlighting, custom 3D text styling, and clear visual hierarchy for event announcements.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\5967487927287745320_121.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN BETHEL', 'Elegant Minimalist Design');">
+                            <img src="images/5967487927287745320_121.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN BETHEL', 'Elegant Minimalist Design');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#02060d] via-[#02060d]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 border border-white/5 rounded-xl">
                                 <h5 class="text-white font-display font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-rose-400">Church Conference Event Flyer</h5>
                             </div>
                         </div>
                     </div>
-                     <!-- Gaming Platform Promotional Design -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Gaming Platform Promotional Design', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\5789720360482705147_121.jpg', 'posters', 'Dynamic promotional graphic created for Kana Games, leveraging rich green gradients, colorful game art showcases, and crisp feature badges.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-[3/4] group cursor-hover relative shadow-lg p-1.5" onclick="openLightbox('Gaming Platform Promotional Design', 'images/5789720360482705147_121.jpg', 'posters', 'Dynamic promotional graphic created for Kana Games, leveraging rich green gradients, colorful game art showcases, and crisp feature badges.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\5789720360482705147_121.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN BETHEL', 'Elegant Minimalist Design');">
+                            <img src="images/5789720360482705147_121.jpg" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'portrait', 'QUEEN BETHEL', 'Elegant Minimalist Design');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#02060d] via-[#02060d]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 border border-white/5 rounded-xl">
                                 <h5 class="text-white font-display font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-500 text-rose-400">Gaming Platform Promo</h5>
                             </div>
@@ -710,10 +675,9 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Youtube Growth -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('YOUTUBE ምን ይሻላል Video Thumbnail', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 163047.webp', 'thumbnails', 'High click-through-rate study thumbnail focusing on clean typography, expression assets, and bright neon contrast.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('YOUTUBE ምን ይሻላል Video Thumbnail', 'images/Screenshot 2026-07-08 163047.webp', 'thumbnails', 'High click-through-rate study thumbnail focusing on clean typography, expression assets, and bright neon contrast.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\Screenshot 2026-07-08 163047.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'YOUTUBE ምን ይሻላል', 'Viral Strategy Analysis');">
+                            <img src="images/Screenshot 2026-07-08 163047.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'YOUTUBE ምን ይሻላል', 'Viral Strategy Analysis');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">YouTube ምን ይሻላል</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -724,10 +688,9 @@
                         </div>
                     </div>
 
-                    <!-- Guess Who -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('VS: Guess Who I Am Thumbnail', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 163057.webp', 'thumbnails', 'High-engagement versus game style design. Optimized specifically for clear readable text on mobile screens.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('VS: Guess Who I Am Thumbnail', 'images/Screenshot 2026-07-08 163057.webp', 'thumbnails', 'High-engagement versus game style design. Optimized specifically for clear readable text on mobile screens.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\Screenshot 2026-07-08 163057.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'GUESS WHO I AM', 'VS Challenge Game Screen');">
+                            <img src="images/Screenshot 2026-07-08 163057.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'GUESS WHO I AM', 'VS Challenge Game Screen');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">VS: Guess Who I Am</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -738,10 +701,9 @@
                         </div>
                     </div>
 
-                    <!-- FL Studio -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Slow Rock Beat in FL Studio Tutorial', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot-2026-07-08-163109.webp', 'thumbnails', 'FL Studio workspace visual layout designed with glowing blue accents to attract music producers.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Slow Rock Beat in FL Studio Tutorial', 'images/Screenshot-2026-07-08-163109.webp', 'thumbnails', 'FL Studio workspace visual layout designed with glowing blue accents to attract music producers.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\Screenshot-2026-07-08-163109.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'FL STUDIO ROCK BEAT', 'Producer Tutorial Layout');">
+                            <img src="images/Screenshot-2026-07-08-163109.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'FL STUDIO ROCK BEAT', 'Producer Tutorial Layout');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">Slow Rock Beat Tutorial</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -752,10 +714,9 @@
                         </div>
                     </div>
 
-                    <!-- IRL Stream -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('ያልታሰበ IRL stream Campaign Thumbnail', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot-2026-07-08-163118.webp', 'thumbnails', 'A cinematic real-life stream concept header utilizing glowing text styles and professional focus filters.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('ያልታሰበ IRL stream Campaign Thumbnail', 'images/Screenshot-2026-07-08-163118.webp', 'thumbnails', 'A cinematic real-life stream concept header utilizing glowing text styles and professional focus filters.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\Screenshot-2026-07-08-163118.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'ያልታሰበ IRL STREAM', 'Live Interactive Design');">
+                            <img src="images/Screenshot-2026-07-08-163118.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'ያልታሰበ IRL STREAM', 'Live Interactive Design');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">ያልታሰበ IRL Stream</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -766,10 +727,9 @@
                         </div>
                     </div>
 
-                    <!-- Blender Tut -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('3D Blender Engine Design Tutorial', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\6017168501195344911_119.webp', 'thumbnails', 'Visually engaging 3D render workflow template focusing on dark viewport highlights and blue flame accents.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('3D Blender Engine Design Tutorial', 'images/6017168501195344911_119.webp', 'thumbnails', 'Visually engaging 3D render workflow template focusing on dark viewport highlights and blue flame accents.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\6017168501195344911_119.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', '3D BLENDER WORKFLOW', 'Geometric Modelling Tutorial');">
+                            <img src="images/6017168501195344911_119.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', '3D BLENDER WORKFLOW', 'Geometric Modelling Tutorial');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">3D Blender Workflow</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -780,10 +740,9 @@
                         </div>
                     </div>
 
-                    <!-- Bereket Tesfaye -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Singer Bereket Tesfaye Cover Art', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Singer-Bereket-Tesfaye2.webp', 'thumbnails', 'Elegant and spiritual cover art design for gospel singer Bereket Tesfaye, featuring warm lighting and clean typography.')">
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Singer Bereket Tesfaye Cover Art', 'images/Singer-Bereket-Tesfaye2.webp', 'thumbnails', 'Elegant and spiritual cover art design for gospel singer Bereket Tesfaye, featuring warm lighting and clean typography.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\Singer-Bereket-Tesfaye2.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'BEREKET TESFAYE', 'Album Cover Art Design');">
+                            <img src="images/Singer-Bereket-Tesfaye2.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'campaign', 'BEREKET TESFAYE', 'Album Cover Art Design');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">Bereket Tesfaye Album</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -793,10 +752,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Finance & Mindset YouTube Thumbnail -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Finance & Mindset YouTube Thumbnail', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 163017.webp', 'thumbnails', 'Bold thumbnail layout tailored for self-improvement and finance channels, combining strong typography contrast with visual hooks.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Finance & Mindset YouTube Thumbnail', 'images/Screenshot 2026-07-08 163017.webp', 'thumbnails', 'Bold thumbnail layout tailored for self-improvement and finance channels, combining strong typography contrast with visual hooks.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\Screenshot 2026-07-08 163017.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'FL STUDIO ROCK BEAT', 'Producer Tutorial Layout');">
+                            <img src="images/Screenshot 2026-07-08 163017.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'FL STUDIO ROCK BEAT', 'Producer Tutorial Layout');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">Finance & Mindset</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -806,10 +765,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Forex & Stock Trading YouTube Thumbnail -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Forex & Stock Trading YouTube Thumbnail', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot 2026-07-08 163037.webp', 'thumbnails', 'A high-converting YouTube thumbnail created for trading education content, featuring vibrant green chart overlays, dynamic currency effects, and high-contrast typography.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Forex & Stock Trading YouTube Thumbnail', 'images/Screenshot 2026-07-08 163037.webp', 'thumbnails', 'A high-converting YouTube thumbnail created for trading education content, featuring vibrant green chart overlays, dynamic currency effects, and high-contrast typography.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\Screenshot 2026-07-08 163037.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'FL STUDIO ROCK BEAT', 'Producer Tutorial Layout');">
+                            <img src="images/Screenshot 2026-07-08 163037.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'FL STUDIO ROCK BEAT', 'Producer Tutorial Layout');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">Forex & Stock Trading</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -819,10 +778,10 @@
                             </div>
                         </div>
                     </div>
-                     <!-- Burger King vs. McDonald’s Challenge Design -->
-                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Burger King vs. McDonald’s Challenge Design', 'C:\\Users\\hayah\\OneDrive\\Documents\\New folder\\images\\Screenshot-2026-07-08-163129.webp', 'thumbnails', 'Dynamic visual thumbnail engineered for viral food content, leveraging bold contrast, rating graphics, and split-screen visual storytelling.')">
+                    
+                    <div class="portfolio-card glass-card rounded-2xl overflow-hidden aspect-video group cursor-hover relative shadow-xl p-2" onclick="openLightbox('Burger King vs. McDonald’s Challenge Design', 'images/Screenshot-2026-07-08-163129.webp', 'thumbnails', 'Dynamic visual thumbnail engineered for viral food content, leveraging bold contrast, rating graphics, and split-screen visual storytelling.')">
                         <div class="w-full h-full rounded-xl overflow-hidden relative">
-                            <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\\Screenshot-2026-07-08-163129.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'FL STUDIO ROCK BEAT', 'Producer Tutorial Layout');">
+                            <img src="images/Screenshot-2026-07-08-163129.webp" class="w-full h-full object-cover portfolio-img group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; loadFallbackSvg(this, 'youtube', 'FL STUDIO ROCK BEAT', 'Producer Tutorial Layout');">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#010408] via-[#010408]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 backdrop-blur-[2px]">
                                 <h4 class="text-white font-display font-bold truncate text-lg">BK vs. McDonald’s Challenge</h4>
                                 <div class="flex justify-between items-center mt-2">
@@ -866,7 +825,6 @@
                 </a>
 
                 <a href="https://t.me/Jofire_graphic" target="_blank" class="flex flex-col items-center p-8 glass-card rounded-3xl border-accent/30 hover:border-accent transition-all duration-500 relative group overflow-hidden cursor-hover">
-                    <!-- Highlight background for primary CTA -->
                     <div class="absolute inset-0 bg-gradient-to-b from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     <div class="w-16 h-16 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center mb-5 text-accent animate-pulse-slow group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-300 relative z-10">
@@ -884,15 +842,13 @@
     </section>
 
     <footer class="bg-[#010408] py-14 border-t border-white/10 relative z-10 overflow-hidden">
-        <!-- Subtle footer glow -->
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-t from-accent/5 to-transparent pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10 relative z-10">
-            <!-- Brand Logo -->
             <div class="font-display font-bold text-xl tracking-widest text-white flex items-center gap-4 group cursor-hover">
                 <div class="relative">
                     <div class="absolute inset-0 bg-accent rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
-                    <img src="C:\Users\hayah\OneDrive\Documents\New folder\images\5974231240687078374_99.webp" 
+                    <img src="images/5974231240687078374_99.webp" 
                          alt="Jo Fire Logo Bottom" 
                          class="relative w-12 h-12 rounded-full object-cover border-2 border-accent/60 shadow-[0_0_15px_rgba(0,212,255,0.5)] transition-transform duration-700 group-hover:rotate-12"
                          onerror="this.onerror=null; loadFallbackSvg(this, 'avatar', 'JO', 'FIRE');">
@@ -902,23 +858,17 @@
                 </span>
             </div>
             
-            <!-- CENTRAL: BEAUTIFULLY ANIMATED "DEVELOPED BY" SECTION -->
             <div class="flex flex-col items-center gap-6">
-                <!-- Advanced CSS Motion Badge -->
                 <div class="relative group inline-flex perspective-1000 cursor-hover">
-                    <!-- Animated flowing gradient border/glow -->
                     <div class="absolute -inset-1 bg-gradient-to-r from-accent via-[#0066ff] to-accent rounded-full blur-md opacity-60 group-hover:opacity-100 animate-gradient-xy transition-all duration-700"></div>
                     
-                    <!-- Core Badge Container -->
                     <div class="relative bg-[#030b14] border border-white/10 px-8 py-3.5 rounded-full flex items-center gap-5 hover:bg-[#081627] transition-all duration-500 transform group-hover:-translate-y-1 group-hover:scale-105 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
                         
-                        <!-- Prefix -->
                         <div class="flex items-center gap-2">
                             <i class="fa-solid fa-code text-accent text-sm animate-pulse-slow drop-shadow-[0_0_5px_rgba(0,212,255,0.8)]"></i>
                             <span class="text-[10px] text-gray-400 font-mono tracking-[0.2em] uppercase font-bold">Engineered By</span>
                         </div>
                         
-                        <!-- Name Link -->
                         <a href="https://t.me/Dili_forgiven" target="_blank" class="font-display font-bold text-base tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 group-hover:from-accent group-hover:to-[#0066ff] transition-all duration-500 relative overflow-hidden px-1">
                             @Dili_forgiven
                             <span class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-accent to-[#0066ff] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
@@ -926,7 +876,6 @@
                         
                         <div class="h-5 w-px bg-white/20 group-hover:bg-white/40 transition-colors"></div>
                         
-                        <!-- Socials inside badge -->
                         <div class="flex items-center gap-4">
                             <a href="https://instagram.com/dili_forgiven" target="_blank" class="text-gray-500 hover:text-accent transform hover:scale-125 hover:rotate-12 transition-all duration-300 drop-shadow-md" aria-label="Developer Instagram">
                                 <i class="fa-brands fa-instagram text-base"></i>
@@ -941,7 +890,6 @@
                 <p class="text-gray-600 text-xs tracking-widest font-mono">© 2026 Jo Fire Portfolio. High-performance creative precision.</p>
             </div>
             
-            <!-- Designer Socials -->
             <div class="flex gap-4">
                 <a href="https://instagram.com/jo_fire_12" target="_blank" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:text-white hover:bg-gradient-to-tr hover:from-accent hover:to-blue-500 hover:border-transparent transition-all duration-500 cursor-hover text-gray-400 shadow-lg group">
                     <i class="fa-brands fa-instagram text-lg group-hover:scale-110 transition-transform"></i>
@@ -963,9 +911,7 @@
             
             <div class="md:w-3/5 bg-[#030b14] flex items-center justify-center p-8 relative min-h-[300px] md:min-h-0 group">
                 <div class="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent opacity-50"></div>
-                <div id="lightbox-img-wrapper" class="w-full h-full flex items-center justify-center relative z-10">
-                    <!-- Loaded dynamically via JS -->
-                </div>
+                <div id="lightbox-img-wrapper" class="w-full h-full flex items-center justify-center relative z-10"></div>
                 <span id="lightbox-category-badge" class="absolute top-6 left-6 px-5 py-2 bg-accent/20 border border-accent/40 text-accent text-[10px] font-bold uppercase tracking-widest rounded-full font-mono shadow-[0_0_15px_rgba(0,212,255,0.3)] backdrop-blur-md z-20">CATEGORY</span>
             </div>
             
@@ -1008,7 +954,6 @@
         </div>
     </div>
 
-    <!-- NOTIFICATION POPUP PANEL -->
     <div id="toast" class="fixed bottom-6 right-6 z-[110] glass px-6 py-4 rounded-xl border-l-4 border-accent shadow-[0_0_30px_rgba(0,212,255,0.3)] transform translate-y-20 opacity-0 pointer-events-none transition-all duration-500 flex items-center gap-4">
         <div class="w-8 h-8 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center">
             <i class="fa-solid fa-check text-accent text-sm"></i>
@@ -1017,7 +962,6 @@
     </div>
 
     <script>
-        // --- CUSTOM CURSOR LOGIC ---
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
 
@@ -1032,7 +976,6 @@
             cursorOutline.style.top = `${posY}px`;
         });
 
-        // --- SCROLL PROGRESS INDICATOR ---
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1040,7 +983,6 @@
             document.getElementById("scroll-progress").style.width = scrolled + "%";
         });
 
-        // --- DOM Elements ---
         const navbar = document.getElementById('navbar');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1055,10 +997,8 @@
         const toast = document.getElementById('toast');
         const toastText = document.getElementById('toast-text');
 
-        // Dynamic Fallback SVG Loader (Updated for Cyan Theme)
         function loadFallbackSvg(imgElement, type, mainTitle, subTitle) {
             let svgContent = '';
-            // Updated all fallback gradients and colors from #e63946 (Red) to #00d4ff (Cyan)
             if (type === 'avatar') {
                 svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="w-full h-full bg-[#030b14]"><defs><radialGradient id="ag" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#04152e"/><stop offset="100%" stop-color="#010408"/></radialGradient></defs><rect width="200" height="200" fill="url(#ag)" /><circle cx="100" cy="80" r="35" fill="none" stroke="#00d4ff" stroke-width="2.5" /><circle cx="100" cy="80" r="28" fill="#00d4ff" opacity="0.15" /><path d="M50,155 C50,125 72,110 100,110 C128,110 150,125 150,155" fill="none" stroke="#00d4ff" stroke-width="2.5" /><path d="M55,150 C55,130 75,115 100,115 C125,115 145,130 145,150" fill="#00d4ff" opacity="0.15" /><circle cx="100" cy="80" r="4" fill="#ffffff" /><path d="M100,30 L100,15" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" opacity="0.5" /></svg>`;
             } else if (type === 'logo') {
@@ -1076,7 +1016,6 @@
             reader.onloadend = function() { imgElement.src = reader.result; }
         }
 
-        // --- Smooth Animated Filter Logic ---
         function filterGallery(category, clickedButton) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             clickedButton.classList.add('active');
@@ -1100,7 +1039,6 @@
             });
         }
 
-        // --- About Section 3D Tilt Card ---
         const tiltCard = document.getElementById('about-card');
         tiltCard.addEventListener('mousemove', (e) => {
             const rect = tiltCard.getBoundingClientRect();
@@ -1120,7 +1058,6 @@
             tiltCard.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
         });
 
-        // --- Mobile Menu ---
         mobileMenuBtn.addEventListener('click', () => {
             const isHidden = mobileMenu.classList.contains('opacity-0');
             if (isHidden) {
@@ -1139,7 +1076,6 @@
             });
         });
 
-        // --- Sticky Navbar & Reveal Logic ---
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('backdrop-blur-2xl', 'bg-[#010408]/85');
@@ -1159,7 +1095,6 @@
         });
         window.dispatchEvent(new Event('scroll'));
 
-        // --- Interactive Lightbox ---
         function openLightbox(title, imgUrl, categoryLabel, description) {
             lightboxTitle.innerText = title;
             lightboxDesc.innerText = description;
@@ -1205,7 +1140,6 @@
             }
         });
 
-        // --- Custom Toast Copy ---
         function copyToClipboard(text) {
             const dummy = document.createElement("textarea");
             document.body.appendChild(dummy);
@@ -1224,7 +1158,7 @@
 
     <script>
         const scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x010408, 0.045); // Deep blue fog
+        scene.fog = new THREE.FogExp2(0x010408, 0.045);
 
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -1235,8 +1169,8 @@
 
         const geometry = new THREE.IcosahedronGeometry(13, 1);
         const material = new THREE.MeshStandardMaterial({ 
-            color: 0x00d4ff, // Cyan mesh
-            emissive: 0x003366, // Deep blue emissive
+            color: 0x00d4ff,
+            emissive: 0x003366,
             wireframe: true,
             transparent: true,
             opacity: 0.3
@@ -1265,7 +1199,7 @@
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
         const particlesMaterial = new THREE.PointsMaterial({
             size: 0.18,
-            color: 0x00d4ff, // Cyan particles
+            color: 0x00d4ff,
             transparent: true,
             opacity: 0.5,
             blending: THREE.AdditiveBlending
